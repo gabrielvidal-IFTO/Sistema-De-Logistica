@@ -228,17 +228,17 @@
         else if (criterioAtual === 'degradacao') colunasHtmlDijkstra = `<td><span class="small fw-semibold text-secondary">${detalhes.via}</span></td>`;
 
         const linha = `
-            <tr>
-                <td><span class="badge bg-dark">${resDijkstra.algoritmo}</span></td>
-                <td>
-                    <div class="route-path" style="font-size: 0.9rem;">
-                        ${detalhes.caminhoStr}
-                    </div>
-                </td>
-                ${colunasHtmlDijkstra}
-            </tr>
-        `;
-        corpo.innerHTML += linha;
+    <tr>
+        <td class="align-middle"><span class="badge bg-dark">${resDijkstra.algoritmo}</span></td>
+        <td class="align-middle">
+            <div class="route-path text-wrap" style="font-size: 0.9rem; white-space: normal; word-break: break-word; max-width: 450px;">
+                ${detalhes.caminhoStr}
+            </div>
+        </td>
+        ${colunasHtmlDijkstra}
+    </tr>
+`;
+corpo.innerHTML += linha;
         
         const resBellmanFord = algoritmoBellmanFord(origem, destino, criterioAtual);
         const detalhesBF = calcularCustoCaminho(resBellmanFord.rota);
@@ -249,17 +249,18 @@
         else if (criterioAtual === 'degradacao') colunasHtmlBF = `<td><span class="small fw-semibold text-secondary">${detalhesBF.via}</span></td>`;
 
         const linhaBF = `
-            <tr>
-                <td><span class="badge bg-primary">${resBellmanFord.algoritmo}</span></td>
-                <td>
-                    <div class="route-path" style="font-size: 0.9rem;">
-                        ${detalhesBF.caminhoStr}
-                    </div>
-                </td>
-                ${colunasHtmlBF}
-            </tr>
-        `;
-        corpo.innerHTML += linhaBF;
+    <tr>
+        <td class="align-middle"><span class="badge bg-primary">${resBellmanFord.algoritmo}</span></td>
+        <td class="align-middle">
+            <div class="route-path text-wrap" style="font-size: 0.9rem; white-space: normal; word-break: break-word; max-width: 450px;">
+                ${detalhesBF.caminhoStr}
+            </div>
+        </td>
+        ${colunasHtmlBF}
+    </tr>
+`;
+corpo.innerHTML += linhaBF;
+
     }
 
     function alterarCriterio(criterio) {
