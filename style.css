@@ -1,0 +1,58 @@
+
+
+:root {
+    --bg-main: #f8f9fa;
+    --sidebar-bg: #1e293b;
+    --accent-color: #0ea5e9;
+}
+
+body {
+    background-color: var(--bg-main);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Estrutura da Sidebar */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    min-height: 100vh;
+    color: #fff;
+}
+
+/* Cartões de Critérios (Modern Radios) */
+.crit-card {
+    cursor: pointer;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.2s ease;
+}
+
+.btn-check:checked + .crit-card {
+    border-color: var(--accent-color);
+    background-color: #f0f9ff;
+}
+
+.crit-card i {
+    font-size: 1.5rem;
+    color: #64748b;
+}
+
+.btn-check:checked + .crit-card i {
+    color: var(--accent-color);
+}
+
+/* Container de Rotas */
+.route-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 24px;
+}
+
+.route-path {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
