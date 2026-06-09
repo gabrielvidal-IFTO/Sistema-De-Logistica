@@ -142,10 +142,10 @@ body {
 
     /* 3. Nova calibração milimétrica das estradas para o tamanho mobile */
     [id="Dueré, TO-Gurupi, TO"] { top: 58px; left: 50%; width: 145px; transform: rotate(36deg); }
-    [id="Dueré, TO-Formoso do Araguaia, TO"] { top: 58px; left: 50%; width: 250px; transform: rotate(146deg); }
-    [id="Cariri do Tocantins, TO-Gurupi, TO"] { top: 168px; left: 82%; width: 185px; transform: rotate(126deg); }
-    [id="Cariri do Tocantins, TO-Formoso do Araguaia, TO"] { top: 278px; left: 18%; width: 215px; transform: rotate(8deg); }
-    [id="Cariri do Tocantins, TO-Figueirópolis, TO"] { top: 348px; left: 68%; width: 160px; transform: rotate(142deg); }
-    [id="Figueirópolis, TO-Formoso do Araguaia, TO"] { top: 278px; left: 18%; width: 245px; transform: rotate(45deg); }
+    [id="Dueré, TO-Formoso do Araguaia, TO"] { top: 58px; left: 50%; width: 250px; transform: rotate(120deg); }
+    [id="Cariri do Tocantins, TO-Gurupi, TO"] { top: 168px; left: 82%; width: 185px; transform: rotate(105deg); }
+    [id="Cariri do Tocantins, TO-Formoso do Araguaia, TO"] { top: 278px; left: 18%; width: 215px; transform: rotate(20deg); }
+    [id="Cariri do Tocantins, TO-Figueirópolis, TO"] { top: 348px; left: 68%; width: 160px; transform: rotate(120deg); }
+    [id="Figueirópolis, TO-Formoso do Araguaia, TO"] { top: 278px; left: 18%; width: 245px; transform: rotate(60deg); }
     [id="Alvorada, TO-Figueirópolis, TO"] { top: 488px; left: 50%; width: 72px; transform: rotate(90deg); }
 }
