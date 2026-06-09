@@ -1,20 +1,9 @@
-const cidades = ["Gurupi, TO", "Dueré, TO", "Cariri do Tocantins, TO", "Formoso do Araguaia, TO", "Alvorada, TO", "Figueirópolis, TO"];
-const numVertices = cidades.length;
+let cidades = [];
+let numVertices = 0;
 
-
-//Inicialização da Matriz de Distancia
-const matrizDistancia = Array(numVertices).fill(null).map(() => Array(numVertices).fill(Infinity));
-//Inicialização da Matriz de Tempo
-const matrizTempo = Array(numVertices).fill(null).map(() => Array(numVertices).fill(Infinity));
-//Inicialização da Matriz de Degradação
-const matrizDegradacao = Array(numVertices).fill(null).map(() => Array(numVertices).fill(Infinity));
-
-for (let i = 0; i < numVertices; i++) {
-    matrizDistancia[i][i] = 0;
-    matrizTempo[i][i] = 0;
-    matrizDegradacao[i][i] = 0;
-}
-
+let matrizDistancia = [];
+let matrizTempo = [];
+let matrizDegradacao = [];
 
 function extrairDistancia(texto) {
     return parseFloat(texto.replace(" km", ""));
@@ -30,16 +19,49 @@ function extrairTempo(texto) {
     return parseInt(texto.replace(" minutos", ""));
 }
 
-dadosRodoviarios.forEach(item => {
-    const u = cidades.indexOf(item.origem);
-    const v = cidades.indexOf(item.destino);
+function inicializarGrafo() {
+    try {
+        if (typeof dadosRodoviarios === 'undefined') {
+            console.error("dadosRodoviarios não está definido. Verifique a importação do dados.js.");
+            return false;
+        }
 
-    if (u !== -1 && v !== -1) {
-        matrizDistancia[u][v] = extrairDistancia(item.distancia);
-        matrizTempo[u][v] = extrairTempo(item.tempo);
-        matrizDegradacao[u][v] = item.degradacao;
+        const cidadesSet = new Set();
+        dadosRodoviarios.forEach(item => {
+            cidadesSet.add(item.origem);
+            cidadesSet.add(item.destino);
+        });
+        
+        cidades = Array.from(cidadesSet);
+        numVertices = cidades.length;
+        
+        matrizDistancia = Array(numVertices).fill(null).map(() => Array(numVertices).fill(Infinity));
+        matrizTempo = Array(numVertices).fill(null).map(() => Array(numVertices).fill(Infinity));
+        matrizDegradacao = Array(numVertices).fill(null).map(() => Array(numVertices).fill(Infinity));
+
+        for (let i = 0; i < numVertices; i++) {
+            matrizDistancia[i][i] = 0;
+            matrizTempo[i][i] = 0;
+            matrizDegradacao[i][i] = 0;
+        }
+
+        dadosRodoviarios.forEach(item => {
+            const u = cidades.indexOf(item.origem);
+            const v = cidades.indexOf(item.destino);
+
+            if (u !== -1 && v !== -1) {
+                matrizDistancia[u][v] = extrairDistancia(item.distancia);
+                matrizTempo[u][v] = extrairTempo(item.tempo);
+                matrizDegradacao[u][v] = item.degradacao;
+            }
+        });
+        
+        return true;
+    } catch (error) {
+        console.error("Erro ao inicializar o grafo:", error);
+        return false;
     }
-});
+}
 
 function obterMatrizPorCriterio(criterio) {
     if (criterio === 'distancia') return matrizDistancia;

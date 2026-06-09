@@ -28,7 +28,7 @@ body {
     transition: all 0.2s ease;
 }
 
-.btn-check:checked + .crit-card {
+.btn-check:checked + label .crit-card {
     border-color: var(--accent-color);
     background-color: #f0f9ff;
 }
@@ -38,7 +38,7 @@ body {
     color: #64748b;
 }
 
-.btn-check:checked + .crit-card i {
+.btn-check:checked + label .crit-card i {
     color: var(--accent-color);
 }
 
