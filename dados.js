@@ -1,4 +1,5 @@
-[
+const dadosRodoviarios = [
+   [
   { "origem": "Gurupi, TO", "destino": "Dueré, TO", "distancia": "43.5 km", "tempo": "45 minutos", "degradacao": 7 },
   { "origem": "Gurupi, TO", "destino": "Cariri do Tocantins, TO", "distancia": "17.1 km", "tempo": "15 minutos", "degradacao": 2 },
   { "origem": "Gurupi, TO", "destino": "Formoso do Araguaia, TO", "distancia": "75.4 km", "tempo": "1 hora 10 minutos", "degradacao": 8 },
@@ -35,3 +36,4 @@
   { "origem": "Figueirópolis, TO", "destino": "Formoso do Araguaia, TO", "distancia": "121.0 km", "tempo": "1 hora 40 minutos", "degradacao": 8 },
   { "origem": "Figueirópolis, TO", "destino": "Alvorada, TO", "distancia": "27.5 km", "tempo": "20 minutos", "degradacao": 5 }
 ]
+];
