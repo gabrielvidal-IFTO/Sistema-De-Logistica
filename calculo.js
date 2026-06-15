@@ -45,14 +45,24 @@ function inicializarGrafo() {
             matrizDegradacao[i][i] = 0;
         }
 
+      
         dadosRodoviarios.forEach(item => {
             const u = cidades.indexOf(item.origem);
             const v = cidades.indexOf(item.destino);
 
             if (u !== -1 && v !== -1) {
-                matrizDistancia[u][v] = extrairDistancia(item.distancia);
-                matrizTempo[u][v] = extrairTempo(item.tempo);
+                const dist = extrairDistancia(item.distancia);
+                const tempo = extrairTempo(item.tempo);
+
+                
+                matrizDistancia[u][v] = dist;
+                matrizTempo[u][v] = tempo;
                 matrizDegradacao[u][v] = item.degradacao;
+
+               
+                matrizDistancia[v][u] = dist;
+                matrizTempo[v][u] = tempo;
+                matrizDegradacao[v][u] = item.degradacao;
             }
         });
         
@@ -62,7 +72,6 @@ function inicializarGrafo() {
         return false;
     }
 }
-
 function obterMatrizPorCriterio(criterio) {
     if (criterio === 'distancia') return matrizDistancia;
     if (criterio === 'tempo') return matrizTempo;
